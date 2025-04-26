@@ -136,21 +136,24 @@ name: str
 
 
 #----------------------------------
-# Equality is Identity Comparison |
+# Equality vs Identity Comparison |
 #----------------------------------
 
 v1 = 1
 v2 = 1
+# true
 if v1 == v2:
     print(f"{v1+v2}")
 
 # Python interns small integers (-5 to 256) and some strings, so is can be True for some literals.
 # Interning is a performance optimization where Python reuses immutable objects, rather than creating new ones every time.
+# true
 if v1 is v2:
     print(f"{v1+v2}")
 
 a = [1, 2, 3]
 b = a
+# true
 if id(a) == id(b):
     print("same object")
 
@@ -385,3 +388,11 @@ sub_sequence = sequence[-5:]
 # Arbitrary negative index slice
 sub_sequence = sequence[-5:-2]
 print(sub_sequence)
+
+
+#------------------
+# Lambda Function |
+#------------------
+# Short, anonymous functions.
+sorted_list = sorted([(0,6), (25,-1),(0,355),(435,-24)], key=lambda x: x[0])
+print(sorted_list)
